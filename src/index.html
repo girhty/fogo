@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="FooPay" content="width=device-width, initial-scale=1.0">
+    <title>FOO</title>
+    <link rel="icon" href="/src/styles/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/src/styles/styles.css"/>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+</head>
+<body class="bg-white w-screen h-screen">
+    <script src="/src/index.js"></script>
+    <div class="flex flex-col items-center bg-white font-extrabold text-xl text-red-900">
+        <div class="flex items-center flex-col w-[350px] h-1/2">
+          <img
+            class="w-40 h-40 my-5"
+            src="./src/styles/logo.svg"
+          />
+          <form
+            id="Sub-form"
+            class="space-y-2 h-full w-full flex  flex-col text-black items-center"
+          >
+            <input
+              placeholder="Name On Card"
+              class="block text-blue-800 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+              type="text"
+              name="full_name"
+            />
+    
+            <input
+              placeholder="Card Number"
+              class="block text-blue-800 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              type="text"
+              required
+              name="Card_Number"
+              id="CCNUM"
+              maxlength="19"
+              step={4}
+              onchange="{(e) => {
+                let value = e.target.value
+                  .replace(/\s+/g, '')
+                  .replace(/[^0-9]/gi, '');
+                let formattedValue = '';
+                for (let i = 0; i < value.length; i++) {
+                  if (i > 0 && i % 4 === 0) {
+                    formattedValue += ' ';
+                  }
+                  formattedValue += value.charAt(i);
+                }
+                e.target.value = formattedValue;
+              }}"
+            />
+            <div class="flex flex-row w-full  justify-center ">
+              <input
+                placeholder="CSV"
+                class="block w-2/4 px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
+                maxlength="3"
+                type="password"
+                name="CSV"
+                autoComplete="off"
+              />
+              <input
+                placeholder="MM/YY"
+                type="text"
+                class="block w-11/12 px-4 py-2 border border-gray-300 rounded-r-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
+                maxlength="5"
+                id="date"
+              />
+            </div>
+            <h1 class="text-xs font-red-500 text-center" id="src-inp"></h1>
+            <input
+              placeholder="Amount"
+              class="block text-blue-800 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+              type="number"
+              name="Amount"
+              min="0"
+              max="1000"
+            />
+            <button
+              type="submit"
+              value="Submit"
+              id="form-submit-btn"
+              class="py-2 px-4 flex justify-center items-center  bg-gray-300 bg-opacity-40 focus:ring-green-400 focus:ring-offset-green-200 text-green-500 w-[180px] transition ease-in duration-200 text-center text-lg font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+            >
+            Pay
+            </button>
+          </form>
+        </div>
+      </div>
+    <div class="flex flex-col w-full items-center mt-5 h-3/6">
+        <div class="relative w-3/6 border-black rounded-md border-2 h-full mb-2 p-4 text-lg justify-center flex flex-col items-center">
+            <h1 class="absolute -top-8 left-2 mb-2 text-lg font-semibold underline decoration-green-400 decoration-2">
+              Live Feed
+            </h1>
+            <div
+              id="feeed"
+              class="text-sm font-semibold w-full overflow-y-scroll  flex-col"
+            ></div>
+          </div>
+          <button class="py-2 mb-2 px-4 flex justify-center items-center  bg-gray-700 bg-opacity-40 focus:ring-green-400 focus:ring-offset-green-200 text-white w-[180px] transition ease-in duration-200 text-center text-lg font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+          
+          >Create New Card</button>
+    </div>
+    </div>
+</body>
+</html>

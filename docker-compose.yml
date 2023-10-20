@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: ./app/Dockerfile
+    ports:
+      - '3000:3000'
+  nginx:
+    image: nginx:latest
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./Ngn/conf.d:/etc/nginx/conf.d

@@ -1,0 +1,3 @@
+POST http://localhost:8080/Check?id=Card
+
+{"ccnum":1300000000000}

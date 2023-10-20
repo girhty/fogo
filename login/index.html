@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>FooPay Account</title>
+    <meta name="Login" content="Login" />
+    <link rel="icon" href="./src/styles/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/src/styles/styles.css"/>
+</head>
+<body id="BODY" class="flex flex-col bg-white w-screen items-center h-screen">
+        <div class="container border w-full flex h-full space-y-4 flex-col items-center">
+          <form
+            method="post"
+            action="/api/login"
+            class="space-y-4 flex w-full h-2/3  flex-col text-black items-center justify-center">
+              <img src="./src/styles/logo.svg" class="h-48 w-48 rounded-xl bg-opacity-80"/>
+            <input
+              placeholder="Email"
+              class="max-w-[18rem] sm:max-w-md p-1 text-xl rounded-lg h-14 border-2 border-black"
+              type="email"
+              name="username"
+              required
+            />
+            <input
+              placeholder="Password"
+              class="sm:max-w-md max-w-[18rem] p-1 text-xl rounded-lg h-14 border-2 border-black"
+              type="password"
+              name="password"
+              required
+              minLength={8}
+            />
+            <button
+              class="text-black text-xl border-2 border-green-800 p-2 rounded-lg"
+              type="submit">
+              Login
+            </button>
+          </form>
+          <div class="flex flex-row w-1/2  items-center mt-3">
+              <div class="border border-purple-800 bg-black w-2/3 flex "></div>
+              <h1 class="mx-2">OR</h1>
+              <div class="border border-purple-800 bg-black w-2/3 flex "></div>
+          </div>
+          <div>
+            <a href="/signup">Sign Up</a>
+          </div>
+         </div>
+</body>
+</html>
